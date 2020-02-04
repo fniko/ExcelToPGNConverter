@@ -51,11 +51,16 @@
             this.toolTipPath = new System.Windows.Forms.ToolTip(this.components);
             this.labelExported = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupFieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.variablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.variablesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.variablesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.variablesBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +71,7 @@
             this.button_import.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button_import.Cursor = System.Windows.Forms.Cursors.Default;
             this.button_import.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_import.Location = new System.Drawing.Point(13, 13);
+            this.button_import.Location = new System.Drawing.Point(13, 31);
             this.button_import.Name = "button_import";
             this.button_import.Size = new System.Drawing.Size(113, 23);
             this.button_import.TabIndex = 1;
@@ -78,7 +83,7 @@
             // 
             this.button_export.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button_export.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_export.Location = new System.Drawing.Point(381, 12);
+            this.button_export.Location = new System.Drawing.Point(381, 30);
             this.button_export.Name = "button_export";
             this.button_export.Size = new System.Drawing.Size(116, 23);
             this.button_export.TabIndex = 1;
@@ -90,7 +95,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(411, 101);
+            this.label1.Location = new System.Drawing.Point(411, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 3;
@@ -100,7 +105,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(410, 50);
+            this.label2.Location = new System.Drawing.Point(410, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 4;
@@ -108,14 +113,14 @@
             // 
             // textBoxTournament
             // 
-            this.textBoxTournament.Location = new System.Drawing.Point(13, 47);
+            this.textBoxTournament.Location = new System.Drawing.Point(13, 65);
             this.textBoxTournament.Name = "textBoxTournament";
             this.textBoxTournament.Size = new System.Drawing.Size(391, 20);
             this.textBoxTournament.TabIndex = 5;
             // 
             // numUDRound
             // 
-            this.numUDRound.Location = new System.Drawing.Point(345, 99);
+            this.numUDRound.Location = new System.Drawing.Point(345, 117);
             this.numUDRound.Name = "numUDRound";
             this.numUDRound.Size = new System.Drawing.Size(59, 20);
             this.numUDRound.TabIndex = 6;
@@ -128,7 +133,7 @@
             // 
             // numUDTables
             // 
-            this.numUDTables.Location = new System.Drawing.Point(345, 73);
+            this.numUDTables.Location = new System.Drawing.Point(345, 91);
             this.numUDTables.Name = "numUDTables";
             this.numUDTables.Size = new System.Drawing.Size(59, 20);
             this.numUDTables.TabIndex = 13;
@@ -138,7 +143,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(410, 75);
+            this.label6.Location = new System.Drawing.Point(410, 93);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 14;
@@ -204,7 +209,7 @@
             // 
             // dateTimerPick
             // 
-            this.dateTimerPick.Location = new System.Drawing.Point(12, 75);
+            this.dateTimerPick.Location = new System.Drawing.Point(12, 93);
             this.dateTimerPick.Name = "dateTimerPick";
             this.dateTimerPick.Size = new System.Drawing.Size(214, 20);
             this.dateTimerPick.TabIndex = 39;
@@ -213,7 +218,7 @@
             // 
             this.setExportPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.setExportPath.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.setExportPath.Location = new System.Drawing.Point(284, 12);
+            this.setExportPath.Location = new System.Drawing.Point(284, 30);
             this.setExportPath.Name = "setExportPath";
             this.setExportPath.Size = new System.Drawing.Size(91, 23);
             this.setExportPath.TabIndex = 40;
@@ -224,7 +229,7 @@
             // labelExported
             // 
             this.labelExported.AutoSize = true;
-            this.labelExported.Location = new System.Drawing.Point(378, 132);
+            this.labelExported.Location = new System.Drawing.Point(378, 140);
             this.labelExported.Name = "labelExported";
             this.labelExported.Size = new System.Drawing.Size(119, 13);
             this.labelExported.TabIndex = 41;
@@ -235,14 +240,47 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label3.Location = new System.Drawing.Point(433, 466);
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(425, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 42;
-            this.label3.Text = "Version: 0.1";
+            this.label3.Text = "Version: 0.1.1";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(509, 24);
+            this.menuStrip1.TabIndex = 43;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // configToolStripMenuItem
+            // 
+            this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setupFieldsToolStripMenuItem,
+            this.infoToolStripMenuItem});
+            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.configToolStripMenuItem.Text = "Edit";
+            // 
+            // setupFieldsToolStripMenuItem
+            // 
+            this.setupFieldsToolStripMenuItem.Name = "setupFieldsToolStripMenuItem";
+            this.setupFieldsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.setupFieldsToolStripMenuItem.Text = "Settings";
+            this.setupFieldsToolStripMenuItem.Click += new System.EventHandler(this.setupFieldsToolStripMenuItem_Click);
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.infoToolStripMenuItem.Text = "Info";
             // 
             // variablesBindingSource
             // 
@@ -270,7 +308,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button_export);
             this.Controls.Add(this.button_import);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(525, 535);
             this.MinimizeBox = false;
@@ -281,6 +321,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDTables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.variablesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.variablesBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -313,6 +355,10 @@
         private System.Windows.Forms.ToolTip toolTipPath;
         private System.Windows.Forms.Label labelExported;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setupFieldsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
     }
 }
 

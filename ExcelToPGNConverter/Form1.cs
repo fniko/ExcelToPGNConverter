@@ -1,22 +1,20 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.IO;
-using XLS = Microsoft.Office.Interop.Excel;
-using System.Runtime.InteropServices;
-using System.Drawing;
 using System.Collections.Generic;
-using System.Timers;
+using System.ComponentModel;
+using System.Drawing;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using XLS = Microsoft.Office.Interop.Excel;
 
 namespace ExcelToPGNConverter
 {
     public partial class Form1 : Form
     {
         string exportPath = "";
-       
+        public DefaultPosition defaultValue = new DefaultPosition();
 
         public Variables var = new Variables();
-        private static System.Timers.Timer xTimer;
         public Form1()
         {
             InitializeComponent();
@@ -108,6 +106,12 @@ namespace ExcelToPGNConverter
                                         "No tables set!", MessageBoxButtons.OK);
                 return;
             }
+            else if (defaultValue.initRow == 0)
+            {
+                MessageBox.Show("Warning, no initial read location is set! Please go to Edit/Settings and provide with default location where the program should start reading! Please note all values should differ from ZERO",
+                                            "Warning, no init location set!", MessageBoxButtons.OK);
+                return;
+            }
             else
                 if (openFD.ShowDialog() == DialogResult.OK)
             {
@@ -121,25 +125,25 @@ namespace ExcelToPGNConverter
             XLS.Range xlRange = xlWorksheet.UsedRange;
 
             #region ALTERNATIVE + LOAD
-            //4 + 10 , 19-22
-            //elo : 5 + 16 , 20 - 23
-
             // Initial ROW, where to start reading data
-            int row = 7;
+            decimal row = defaultValue.initRow;
 
-            //string[] namePlayer = new string[30]; //30 = velikost pole, nutno zmenit!
+            #region cleanTheList
+            var.whitePlayer.Clear();
+            var.blackPlayer.Clear();
+            var.eloWhitePlayer.Clear();
+            var.eloBlackPlayer.Clear();
+            #endregion
+
             for (int i = 0; i <= var.Tables; i++)
             {
-                var.whitePlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 4]).Value2)); //WHITE
-                var.blackPlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 10]).Value2)); //BLACK
-                var.eloWhitePlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 5]).Value2)); //WHITE ELO
-                var.eloBlackPlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 11]).Value2)); //BLACK ELO
+                var.whitePlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, defaultValue.wPlayerColumn]).Value2)); //WHITE
+                var.blackPlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, defaultValue.bPlayerColumn]).Value2)); //BLACK
+                var.eloWhitePlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, defaultValue.wPlayerEloColumn]).Value2)); //WHITE ELO
+                var.eloBlackPlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, defaultValue.bPlayerEloColumn]).Value2)); //BLACK ELO
             }
 
             #endregion
-
-            //Cells[Y, X] !!!
-            //string test = xlWorksheet.Cells[19, 4].Value2.ToString();
 
             #region CLEANUP
             //cleanups
@@ -224,6 +228,21 @@ namespace ExcelToPGNConverter
         private void label3_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void setupFieldsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Settings form = new Settings(defaultValue))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    defaultValue.initRow = form.df.initRow;
+                    defaultValue.wPlayerColumn = form.df.wPlayerColumn;
+                    defaultValue.wPlayerEloColumn = form.df.wPlayerEloColumn;
+                    defaultValue.bPlayerColumn = form.df.bPlayerColumn;
+                    defaultValue.bPlayerEloColumn = form.df.bPlayerEloColumn;
+                }
+            }
         }
     }
 }
