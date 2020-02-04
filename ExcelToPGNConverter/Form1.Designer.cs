@@ -49,6 +49,8 @@
             this.folderBD = new System.Windows.Forms.FolderBrowserDialog();
             this.setExportPath = new System.Windows.Forms.Button();
             this.toolTipPath = new System.Windows.Forms.ToolTip(this.components);
+            this.labelExported = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.variablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.variablesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).BeginInit();
@@ -219,6 +221,29 @@
             this.setExportPath.UseVisualStyleBackColor = false;
             this.setExportPath.Click += new System.EventHandler(this.setExportPath_Click);
             // 
+            // labelExported
+            // 
+            this.labelExported.AutoSize = true;
+            this.labelExported.Location = new System.Drawing.Point(378, 132);
+            this.labelExported.Name = "labelExported";
+            this.labelExported.Size = new System.Drawing.Size(119, 13);
+            this.labelExported.TabIndex = 41;
+            this.labelExported.Text = "Round XY was expoted";
+            this.labelExported.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelExported.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.label3.Location = new System.Drawing.Point(433, 466);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 42;
+            this.label3.Text = "Version: 0.1";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Click += new System.EventHandler(this.label3_Click_1);
+            // 
             // variablesBindingSource
             // 
             this.variablesBindingSource.DataSource = typeof(ExcelToPGNConverter.Variables);
@@ -232,6 +257,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 496);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelExported);
             this.Controls.Add(this.setExportPath);
             this.Controls.Add(this.dateTimerPick);
             this.Controls.Add(this.dataGridView1);
@@ -284,6 +311,8 @@
         private System.Windows.Forms.FolderBrowserDialog folderBD;
         private System.Windows.Forms.Button setExportPath;
         private System.Windows.Forms.ToolTip toolTipPath;
+        private System.Windows.Forms.Label labelExported;
+        private System.Windows.Forms.Label label3;
     }
 }
 

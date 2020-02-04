@@ -5,17 +5,22 @@ using System.IO;
 using XLS = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using System.Drawing;
+using System.Collections.Generic;
+using System.Timers;
 
 namespace ExcelToPGNConverter
 {
     public partial class Form1 : Form
     {
         string exportPath = "";
+       
 
         public Variables var = new Variables();
+        private static System.Timers.Timer xTimer;
         public Form1()
         {
             InitializeComponent();
+            labelExported.Text = "";
         }
 
         private void button_export_Click(object sender, EventArgs e)
@@ -53,10 +58,10 @@ namespace ExcelToPGNConverter
             var.TournamentName = textBoxTournament.Text;
             var.Tables = numUDTables.Value;
 
-            RemoveDiacritics(var.WhitePlayer);
-            RemoveDiacritics(var.BlackPlayer);
+            RemoveDiacritics(var.whitePlayer);
+            RemoveDiacritics(var.blackPlayer);
 
-            using (StreamWriter writetext = new StreamWriter(exportPath + "\round_" + var.Round + ".pgn"))
+            using (StreamWriter writetext = new StreamWriter(exportPath + "\\round_" + var.Round + ".pgn"))
             {
                 for (int i = 0; i <= var.Tables - 1; i++)
                 {
@@ -65,8 +70,8 @@ namespace ExcelToPGNConverter
                     writetext.Write("[Date " + (char)034 + var.Year + "." + var.Month + "." + var.Day + (char)034 + "]\n");
                     writetext.Write("[Round " + (char)034 + var.Round + "." + (i + 1) + (char)034 + "]\n");
 
-                    writetext.Write("[White " + (char)034 + var.WhitePlayer[i] + (char)034 + "]\n");
-                    writetext.Write("[Black " + (char)034 + var.BlackPlayer[i] + (char)034 + "]\n");
+                    writetext.Write("[White " + (char)034 + var.whitePlayer[i] + (char)034 + "]\n");
+                    writetext.Write("[Black " + (char)034 + var.blackPlayer[i] + (char)034 + "]\n");
 
                     writetext.Write("[Result " + (char)034 + "*" + (char)034 + "]\n");
 
@@ -80,6 +85,8 @@ namespace ExcelToPGNConverter
                     writetext.Write("\n");
                 }
             }
+
+            labelExported.Text = String.Format("Round {0} was exported!", var.Round);
         }
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -123,10 +130,10 @@ namespace ExcelToPGNConverter
             //string[] namePlayer = new string[30]; //30 = velikost pole, nutno zmenit!
             for (int i = 0; i <= var.Tables; i++)
             {
-                var.WhitePlayer[i] = Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 4]).Value2); //WHITE
-                var.BlackPlayer[i] = Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 10]).Value2); //BLACK
-                var.eloWhitePlayer[i] = Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 5]).Value2); //WHITE ELO
-                var.eloBlackPlayer[i] = Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 11]).Value2); //BLACK ELO
+                var.whitePlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 4]).Value2)); //WHITE
+                var.blackPlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 10]).Value2)); //BLACK
+                var.eloWhitePlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 5]).Value2)); //WHITE ELO
+                var.eloBlackPlayer.Add(Convert.ToString(((XLS.Range)xlWorksheet.Cells[row + i, 11]).Value2)); //BLACK ELO
             }
 
             #endregion
@@ -154,8 +161,8 @@ namespace ExcelToPGNConverter
             dataGridView1.Rows.Clear();
             #endregion
 
-            for (int i = 1; i <= var.Tables; i++)
-                dataGridView1.Rows.Add(i, var.WhitePlayer[i], var.eloWhitePlayer[i], var.BlackPlayer[i], var.eloBlackPlayer[i]);
+            for (int i = 0; i < var.Tables; i++)
+                dataGridView1.Rows.Add(i + 1, var.whitePlayer[i], var.eloWhitePlayer[i], var.blackPlayer[i], var.eloBlackPlayer[i]);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -163,9 +170,9 @@ namespace ExcelToPGNConverter
 
         }
 
-        public static string[] RemoveDiacritics(string[] text)
+        public static string[] RemoveDiacritics(List<string> text)
         {
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 0; i < text.Count; i++)
             {
                 string tt = text[i];
                 string stringFormD = tt.Normalize(System.Text.NormalizationForm.FormD);
@@ -177,7 +184,7 @@ namespace ExcelToPGNConverter
                 }
                 text[i] = retVal.ToString().Normalize(System.Text.NormalizationForm.FormC);
             }
-            return text;
+            return text.ToArray();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -207,6 +214,16 @@ namespace ExcelToPGNConverter
 
         private void labelExportPath_Click(object sender, EventArgs e)
         {
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -15,10 +15,17 @@ namespace ExcelToPGNConverter
         public string TournamentName { get; set; }
         public decimal Tables { get; set; }
 
-        public string[] WhitePlayer = new string[20];
-        public string[] BlackPlayer = new string[20];
+        //TODO: Move to lists
+        //public string[] WhitePlayer = new string[20];
+        //public string[] BlackPlayer = new string[20];
 
-        public string[] eloWhitePlayer = new string[20];
-        public string[] eloBlackPlayer = new string[20];
+        //public string[] eloWhitePlayer = new string[20];
+        //public string[] eloBlackPlayer = new string[20];
+
+        public List<string> whitePlayer = new List<string>();
+        public List<string> blackPlayer = new List<string>();
+
+        public List<string> eloWhitePlayer = new List<string>();
+        public List<string> eloBlackPlayer = new List<string>();
     }
 }
