@@ -9,13 +9,13 @@ using XLS = Microsoft.Office.Interop.Excel;
 
 namespace ExcelToPGNConverter
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         string exportPath = "";
         public DefaultPosition defaultValue = new DefaultPosition();
 
         public Variables var = new Variables();
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             labelExported.Text = "";
@@ -243,6 +243,13 @@ namespace ExcelToPGNConverter
                     defaultValue.bPlayerEloColumn = form.df.bPlayerEloColumn;
                 }
             }
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Info form = new Info();
+            form.Show();
+     
         }
     }
 }

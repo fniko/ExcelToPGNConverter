@@ -1,6 +1,6 @@
 ﻿namespace ExcelToPGNConverter
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.button_import = new System.Windows.Forms.Button();
             this.button_export = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -272,15 +272,16 @@
             // setupFieldsToolStripMenuItem
             // 
             this.setupFieldsToolStripMenuItem.Name = "setupFieldsToolStripMenuItem";
-            this.setupFieldsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.setupFieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setupFieldsToolStripMenuItem.Text = "Settings";
             this.setupFieldsToolStripMenuItem.Click += new System.EventHandler(this.setupFieldsToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // variablesBindingSource
             // 
@@ -290,7 +291,7 @@
             // 
             this.variablesBindingSource1.DataSource = typeof(ExcelToPGNConverter.Variables);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -315,7 +316,7 @@
             this.MaximumSize = new System.Drawing.Size(525, 535);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(525, 535);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = ".xlsx to .png";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).EndInit();

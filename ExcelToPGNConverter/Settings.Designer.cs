@@ -208,7 +208,12 @@
             this.Controls.Add(this.nUDInitialRow);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(264, 348);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(264, 348);
             this.Name = "Settings";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.nUDInitialRow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDWhitePlayer)).EndInit();
