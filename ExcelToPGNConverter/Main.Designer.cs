@@ -55,6 +55,7 @@
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupFieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tablesLock = new System.Windows.Forms.CheckBox();
             this.variablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.variablesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).BeginInit();
@@ -245,7 +246,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 42;
-            this.label3.Text = "Version: 0.1.2";
+            this.label3.Text = "Version: 0.1.4";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
@@ -272,16 +273,28 @@
             // setupFieldsToolStripMenuItem
             // 
             this.setupFieldsToolStripMenuItem.Name = "setupFieldsToolStripMenuItem";
-            this.setupFieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setupFieldsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.setupFieldsToolStripMenuItem.Text = "Settings";
             this.setupFieldsToolStripMenuItem.Click += new System.EventHandler(this.setupFieldsToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            // 
+            // tablesLock
+            // 
+            this.tablesLock.AutoSize = true;
+            this.tablesLock.Location = new System.Drawing.Point(13, 123);
+            this.tablesLock.Name = "tablesLock";
+            this.tablesLock.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tablesLock.Size = new System.Drawing.Size(54, 17);
+            this.tablesLock.TabIndex = 44;
+            this.tablesLock.Text = "LOCK";
+            this.tablesLock.UseVisualStyleBackColor = true;
+            this.tablesLock.CheckedChanged += new System.EventHandler(this.tablesLock_CheckedChanged);
             // 
             // variablesBindingSource
             // 
@@ -296,6 +309,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 496);
+            this.Controls.Add(this.tablesLock);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelExported);
             this.Controls.Add(this.setExportPath);
@@ -360,6 +374,7 @@
         private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setupFieldsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.CheckBox tablesLock;
     }
 }
 

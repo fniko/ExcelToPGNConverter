@@ -251,5 +251,21 @@ namespace ExcelToPGNConverter
             form.Show();
      
         }
+
+        private void tablesLock_CheckedChanged(object sender, EventArgs e)
+        {
+            if (numUDTables.Enabled == false)
+            {
+                numUDTables.Enabled = true;
+                textBoxTournament.Enabled = true;
+                dateTimerPick.Enabled = true;
+            }
+            else
+            {
+                numUDTables.Enabled = false;
+                textBoxTournament.Enabled = false;
+                dateTimerPick.Enabled = false;
+            }
+        }
     }
 }
