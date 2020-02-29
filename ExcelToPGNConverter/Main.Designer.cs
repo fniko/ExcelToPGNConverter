@@ -56,6 +56,7 @@
             this.setupFieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tablesLock = new System.Windows.Forms.CheckBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.variablesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.variablesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).BeginInit();
@@ -296,6 +297,10 @@
             this.tablesLock.UseVisualStyleBackColor = true;
             this.tablesLock.CheckedChanged += new System.EventHandler(this.tablesLock_CheckedChanged);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // variablesBindingSource
             // 
             this.variablesBindingSource.DataSource = typeof(ExcelToPGNConverter.Variables);
@@ -375,6 +380,7 @@
         private System.Windows.Forms.ToolStripMenuItem setupFieldsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.CheckBox tablesLock;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

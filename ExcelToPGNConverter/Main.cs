@@ -13,6 +13,7 @@ namespace ExcelToPGNConverter
     {
         string exportPath = "";
         public DefaultPosition defaultValue = new DefaultPosition();
+        public int tickerCount = 0;
 
         public Variables var = new Variables();
         public Main()
@@ -85,6 +86,10 @@ namespace ExcelToPGNConverter
             }
 
             labelExported.Text = String.Format("Round {0} was exported!", var.Round);
+
+            timer1.Interval = 500;
+            timer1.Start();
+            // TODO: Simple blink of the label
         }
 
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
@@ -113,9 +118,17 @@ namespace ExcelToPGNConverter
                 return;
             }
             else
-                if (openFD.ShowDialog() == DialogResult.OK)
             {
-                filePath = openFD.FileName;
+                if (openFD.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFD.FileName;
+                }
+                else
+                {
+                    MessageBox.Show("No file has been chosen!", "Warning", MessageBoxButtons.OK);
+                    return;
+                }
+                    
             }
 
             XLS.Workbook xlWorkbook = xlApp.Workbooks.Open(filePath);
@@ -267,5 +280,18 @@ namespace ExcelToPGNConverter
                 dateTimerPick.Enabled = false;
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelExported.Visible = !labelExported.Visible;
+            tickerCount++;
+
+            if (tickerCount > 8)
+            {
+                timer1.Stop();
+                labelExported.Visible = true;
+                tickerCount = 0;
+            }
+            }
     }
 }
