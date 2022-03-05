@@ -336,7 +336,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(525, 535);
             this.Name = "Main";
-            this.Text = ".xlsx to .png";
+            this.Text = ".xlsx to .pgn";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numUDRound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDTables)).EndInit();
